@@ -8,35 +8,73 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- ESPN-like Custom Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Additional custom styles */
         body {
-            background-color: #343a40; /* Darker background for a sleek look */
-            color: #ffffff; /* Light text for contrast */
+            background-color: #fff; /* White background for a clean look */
+            color: #222; /* Dark text for readability */
+            font-family: 'Roboto', sans-serif; /* ESPN uses a similar sans-serif font */
+        }
+        .navbar {
+            background-color: #ce0e2d; /* ESPN red */
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 2rem; /* Larger font size for brand */
+        }
+        .nav-link {
+            color: #fff !important; /* White color for navbar links */
+            font-weight: bold;
         }
         .hero-section {
-            background: url('{{ url_for("static", filename="images/football-background.jpg") }}') no-repeat center center;
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{ url_for("static", filename="images/football-background.jpg") }}') no-repeat center center;
             background-size: cover;
             color: #fff;
-            padding: 100px 0;
+            text-align: center; /* Center align text */
         }
-        .hero-section h1, .hero-section p {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Text shadow for better readability */
+        .hero-section h1 {
+            font-size: 4rem; /* Larger font size for main heading */
+            font-weight: bold;
+        }
+        .hero-section .lead {
+            font-size: 1.3rem; /* Larger font size for lead text */
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background-color: #fff; /* White primary button for contrast */
+            color: #ce0e2d; /* ESPN red text */
+            border-color: #fff; /* White border */
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #ce0e2d; /* ESPN red background on hover */
+            color: #fff;
         }
         .featurette-divider {
             margin: 5rem 0; /* Space out featurettes */
         }
+        .featurette-heading {
+            font-weight: bold;
+            color: #ce0e2d; /* ESPN red for headings */
+        }
         footer {
-            background-color: #212529; /* Slightly lighter footer for subtle contrast */
+            background-color: #222; /* Dark footer background */
+            color: #fff; /* White text for contrast */
+            padding: 20px 0; /* Padding for footer content */
+        }
+        footer p {
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body>
     <header>
         <!-- Bootstrap Navigation bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Fantasy Football Playoffs</a>
+                <a class="navbar-brand" href="/">Playoff Fantasy Football</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -61,21 +99,23 @@
     </header>
 
     <main>
-        <div class="hero-section text-center">
-            <h1 class="display-4">Dominate Your Fantasy Football League</h1>
-            <p class="lead">Draft the ultimate team and compete against friends and rivals.</p>
-            <a href="/draft" class="btn btn-primary btn-lg">Start Your Draft</a>
+        <div class="hero-section">
+            <div class="container">
+                <h1>Dominate Your Fantasy Football League</h1>
+                <p class="lead">Draft the ultimate team and compete against friends and rivals.</p>
+                <a href="/draft" class="btn btn-primary btn-lg">Make Your League</a>
+            </div>
         </div>
 
         <div class="container my-5">
             <!-- Featurettes / Info sections -->
             <div class="row featurette-divider">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">First Featurette Heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                    <p class="lead">Some great insight about your app's first cool feature. Explain how users benefit from it and how it beats the competition.</p>
+                    <h2 class="featurette-heading">Strategize Your Picks. <span class="text-muted">Outsmart the Competition.</span></h2>
+                    <p class="lead">Gain insights on the top players to pick for your fantasy team and maximize your chances of winning.</p>
                 </div>
                 <div class="col-md-5">
-                    <img src="{{ url_for('static', filename='images/feature1.jpg') }}" class="img-fluid" alt="Feature 1">
+                    <img src="{{ url_for('static', filename='images/footballpic.jpeg') }}" class="img-fluid" alt="Strategize Your Picks">
                 </div>
             </div>
 
@@ -83,18 +123,20 @@
 
             <div class="row featurette-divider">
                 <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">And another headline. <span class="text-muted">See for yourself.</span></h2>
-                    <p class="lead">More awesome details about another feature. Don't hold back on how much it improves the user experience.</p>
+                    <h2 class="featurette-heading">Live Draft Experience. <span class="text-muted">Feel the Excitement.</span></h2>
+                    <p class="lead">Participate in live drafts, just like the pros. Pick your lineup and adjust your strategy in real-time.</p>
                 </div>
                 <div class="col-md-5 order-md-1">
-                    <img src="{{ url_for('static', filename='images/feature2.jpg') }}" class="img-fluid" alt="Feature 2">
+                    <img src="{{ url_for('static', filename='images/footballpic.jpeg') }}" class="img-fluid" alt="Live Draft Experience">
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="text-white text-center py-3">
-        © 2024 Fantasy Football Playoffs App
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2024 Fantasy Football Playoffs App</p>
+        </div>
     </footer>
 
     <!-- Bootstrap JS bundle -->
