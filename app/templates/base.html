@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Fantasy Football Playoffs{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Additional custom styles */
+        body {
+            background-color: #343a40; /* Darker background for a sleek look */
+            color: #ffffff; /* Light text for contrast */
+        }
+        .hero-section {
+            background: url('{{ url_for("static", filename="images/football-background.jpg") }}') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            padding: 100px 0;
+        }
+        .hero-section h1, .hero-section p {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Text shadow for better readability */
+        }
+        .featurette-divider {
+            margin: 5rem 0; /* Space out featurettes */
+        }
+        footer {
+            background-color: #212529; /* Slightly lighter footer for subtle contrast */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Bootstrap Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Fantasy Football Playoffs</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/draft">Draft</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/teams">Teams</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/players">Players</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero-section text-center">
+            <h1 class="display-4">Dominate Your Fantasy Football League</h1>
+            <p class="lead">Draft the ultimate team and compete against friends and rivals.</p>
+            <a href="/draft" class="btn btn-primary btn-lg">Start Your Draft</a>
+        </div>
+
+        <div class="container my-5">
+            <!-- Featurettes / Info sections -->
+            <div class="row featurette-divider">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">First Featurette Heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                    <p class="lead">Some great insight about your app's first cool feature. Explain how users benefit from it and how it beats the competition.</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="{{ url_for('static', filename='images/feature1.jpg') }}" class="img-fluid" alt="Feature 1">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette-divider">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">And another headline. <span class="text-muted">See for yourself.</span></h2>
+                    <p class="lead">More awesome details about another feature. Don't hold back on how much it improves the user experience.</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img src="{{ url_for('static', filename='images/feature2.jpg') }}" class="img-fluid" alt="Feature 2">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-white text-center py-3">
+        © 2024 Fantasy Football Playoffs App
+    </footer>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
